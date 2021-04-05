@@ -1,0 +1,18 @@
+.top-right {
+  position: absolute;
+  right: 20px;
+  top: 70px;
+}
+
+caption {
+  caption-side: top;
+}
+
+tbody {
+  counter-reset: sectioncounter;
+}
+
+.SortCLASS:before {
+  content: counter(sectioncounter);
+  counter-increment: sectioncounter;
+}

@@ -1,0 +1,34 @@
+
+@import java.util
+
+@import views.html.helper.FieldConstructor
+@(queryStr: List[Map.Entry[String, Integer]])
+@main("Channel Videos Page") {
+  <html>
+    <head>
+      <style>
+          h1 {
+            text-align: center;
+          }
+      </style>
+    </head>
+    <body>
+      <br>
+      <h1> The similarity level based on the words of the 100 titles</h1>
+      <br>
+      <br>
+      <div class="mx-auto" style="width:40%;">
+        <ul class="list-group" >
+    @for(result <- queryStr) {
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            @result.getKey
+            <span class="badge badge-primary badge-pill">@result.getValue</span>
+          </li>
+
+    }
+        </ul>
+      </div>
+    </body>
+  </html>
+}

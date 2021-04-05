@@ -1,0 +1,45 @@
+@import models.Video
+@import java.util
+@(list: util.List[Record])
+
+@main("Channel Videos Page"){
+  <br>
+  <h1 align="center">@list.get(0).getVideos.get(0).getOwner Channel Videos</h1>
+  <br>
+  <br>
+  <div class="container" style="text-align: left" >
+  <table class="table table-striped" align="center" width="80%">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Title</th>
+      <th scope="col">Channel</th>
+      <th scope="col">View Counts</th>
+      <th scope="col">LapsedTime(min)</th>
+    </tr>
+    @for((video, i) <- list.get(0).getVideos.view.zipWithIndex)  {
+
+      <tr>
+        <td>
+        @{
+          i + 1
+        }
+        </td>
+        <td>@Html(video.getVideo_title)
+        </td>
+        @*        <td><a href = "channelVideo?channelID=@video.getChannelID"> @video.getOwner </a>*@
+        @*        </td>*@
+        <td>@Html(video.getOwner)
+        </td>
+        <td>@{
+          video.getView_count;
+        }</td>
+        <td>@{
+          video.getLapsedTime;
+        }</td>
+
+      </tr>
+
+    }
+  </table>
+  </div>
+}
